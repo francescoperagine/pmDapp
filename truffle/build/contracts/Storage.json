@@ -1,0 +1,1872 @@
+{
+  "contractName": "Storage",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.1+commit.e6f7d5a4\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/E/Dev/pmDapp/truffle/contracts/Storage.sol\":\"Storage\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/E/Dev/pmDapp/truffle/contracts/Storage.sol\":{\"keccak256\":\"0x0a1138073e20c457fdd58aef8a4920d6b16470ab3c941a561e99bbbf01840ec4\",\"urls\":[\"bzz-raw://9cc1b3ab76494bae5fe0fbda4fb3fe4f6d774ca6acb16e5fe5c50ed65edd8007\",\"dweb:/ipfs/QmT61EKqqPAhq2jQ4F82JR2pvfiUfiuKsAimL3qc1doPQc\"]},\"/E/Dev/pmDapp/truffle/contracts/ThesisLib.sol\":{\"keccak256\":\"0xa32cfd6f92c51b75bb9e6347ddeeb51b7c2adf8d9591e8274c8bd845594c3e34\",\"urls\":[\"bzz-raw://2cbdc6fd4d1c26eb36fb9b42c8cfee4b85becb0623ba959b606c4fbeb6a9b257\",\"dweb:/ipfs/QmfCzvCcdvEwPpYwGgF9oqr24H5Ds2EcfUkYmTo3fpXYEC\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212208fee9ab32447d6f85aab3ee00e725c211f45ba789f0d3e1894966ef2be420fb564736f6c63430006010033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212208fee9ab32447d6f85aab3ee00e725c211f45ba789f0d3e1894966ef2be420fb564736f6c63430006010033",
+  "sourceMap": "58:1004:5:-:0;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;58:1004:5;;;;;;;",
+  "deployedSourceMap": "58:1004:5:-:0;;;;;",
+  "source": "pragma solidity >=0.4.22;\r\n\r\nimport \"./ThesisLib.sol\";\r\n\r\ncontract Storage {\r\n\r\n    struct Department {\r\n        uint id;\r\n        string name;\r\n        uint secretariatCounter;\r\n        uint thesisCounter;\r\n        mapping(uint => uint) secretariatCounterToIndex;\r\n        mapping(uint => uint) thesisCounterToIndex;\r\n    }\r\n\r\n    uint departmentCounter;\r\n    mapping(uint => bytes32) departmentIndex;\r\n    mapping(bytes32 => Department) departmentMap;\r\n\r\n    struct Secretariat {\r\n        bool active;\r\n        uint id;\r\n        uint department;\r\n    }\r\n\r\n    uint secretariatCounter;\r\n    mapping(uint => bytes32) secretariatIndex;\r\n    mapping(bytes32 => Secretariat) secretariatMap;\r\n\r\n    struct Stakeholder {\r\n        uint thesisCounter;\r\n        uint thesisCompleted;\r\n        mapping(uint => uint) thesisCounterToIndex;\r\n    }\r\n    mapping(uint => bytes32) stakeholderIndex;\r\n    mapping(bytes32 => Stakeholder) stakeholderMap;\r\n\r\n    uint thesisCounter;\r\n    mapping(uint => bytes32) thesisIndex;\r\n    mapping(bytes32 => ThesisLib.Thesis) thesisMap;\r\n}",
+  "sourcePath": "E:\\Dev\\pmDapp\\truffle\\contracts\\Storage.sol",
+  "ast": {
+    "absolutePath": "/E/Dev/pmDapp/truffle/contracts/Storage.sol",
+    "exportedSymbols": {
+      "Storage": [
+        1584
+      ]
+    },
+    "id": 1585,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1511,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:25:5"
+      },
+      {
+        "absolutePath": "/E/Dev/pmDapp/truffle/contracts/ThesisLib.sol",
+        "file": "./ThesisLib.sol",
+        "id": 1512,
+        "nodeType": "ImportDirective",
+        "scope": 1585,
+        "sourceUnit": 1893,
+        "src": "29:25:5",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1584,
+        "linearizedBaseContracts": [
+          1584
+        ],
+        "name": "Storage",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Storage.Department",
+            "id": 1529,
+            "members": [
+              {
+                "constant": false,
+                "id": 1514,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1529,
+                "src": "113:7:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1513,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "113:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1516,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1529,
+                "src": "131:11:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1515,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "131:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1518,
+                "name": "secretariatCounter",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1529,
+                "src": "153:23:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1517,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "153:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1520,
+                "name": "thesisCounter",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1529,
+                "src": "187:18:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1519,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "187:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1524,
+                "name": "secretariatCounterToIndex",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1529,
+                "src": "216:47:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                  "typeString": "mapping(uint256 => uint256)"
+                },
+                "typeName": {
+                  "id": 1523,
+                  "keyType": {
+                    "id": 1521,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "224:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "216:21:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                    "typeString": "mapping(uint256 => uint256)"
+                  },
+                  "valueType": {
+                    "id": 1522,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "232:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1528,
+                "name": "thesisCounterToIndex",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1529,
+                "src": "274:42:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                  "typeString": "mapping(uint256 => uint256)"
+                },
+                "typeName": {
+                  "id": 1527,
+                  "keyType": {
+                    "id": 1525,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "282:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "274:21:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                    "typeString": "mapping(uint256 => uint256)"
+                  },
+                  "valueType": {
+                    "id": 1526,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "290:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Department",
+            "nodeType": "StructDefinition",
+            "scope": 1584,
+            "src": "84:240:5",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1531,
+            "name": "departmentCounter",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "332:22:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1530,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "332:4:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1535,
+            "name": "departmentIndex",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "361:40:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+              "typeString": "mapping(uint256 => bytes32)"
+            },
+            "typeName": {
+              "id": 1534,
+              "keyType": {
+                "id": 1532,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "369:4:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "361:24:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+                "typeString": "mapping(uint256 => bytes32)"
+              },
+              "valueType": {
+                "id": 1533,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "377:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1539,
+            "name": "departmentMap",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "408:44:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Department_$1529_storage_$",
+              "typeString": "mapping(bytes32 => struct Storage.Department)"
+            },
+            "typeName": {
+              "id": 1538,
+              "keyType": {
+                "id": 1536,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "416:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "408:30:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Department_$1529_storage_$",
+                "typeString": "mapping(bytes32 => struct Storage.Department)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1537,
+                "name": "Department",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1529,
+                "src": "427:10:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Department_$1529_storage_ptr",
+                  "typeString": "struct Storage.Department"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "canonicalName": "Storage.Secretariat",
+            "id": 1546,
+            "members": [
+              {
+                "constant": false,
+                "id": 1541,
+                "name": "active",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1546,
+                "src": "491:11:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1540,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "491:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1543,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1546,
+                "src": "513:7:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1542,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "513:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1545,
+                "name": "department",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1546,
+                "src": "531:15:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1544,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "531:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Secretariat",
+            "nodeType": "StructDefinition",
+            "scope": 1584,
+            "src": "461:93:5",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1548,
+            "name": "secretariatCounter",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "562:23:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1547,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "562:4:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1552,
+            "name": "secretariatIndex",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "592:41:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+              "typeString": "mapping(uint256 => bytes32)"
+            },
+            "typeName": {
+              "id": 1551,
+              "keyType": {
+                "id": 1549,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "600:4:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "592:24:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+                "typeString": "mapping(uint256 => bytes32)"
+              },
+              "valueType": {
+                "id": 1550,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "608:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1556,
+            "name": "secretariatMap",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "640:46:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Secretariat_$1546_storage_$",
+              "typeString": "mapping(bytes32 => struct Storage.Secretariat)"
+            },
+            "typeName": {
+              "id": 1555,
+              "keyType": {
+                "id": 1553,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "648:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "640:31:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Secretariat_$1546_storage_$",
+                "typeString": "mapping(bytes32 => struct Storage.Secretariat)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1554,
+                "name": "Secretariat",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1546,
+                "src": "659:11:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Secretariat_$1546_storage_ptr",
+                  "typeString": "struct Storage.Secretariat"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "canonicalName": "Storage.Stakeholder",
+            "id": 1565,
+            "members": [
+              {
+                "constant": false,
+                "id": 1558,
+                "name": "thesisCounter",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1565,
+                "src": "725:18:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1557,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "725:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1560,
+                "name": "thesisCompleted",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1565,
+                "src": "754:20:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1559,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "754:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1564,
+                "name": "thesisCounterToIndex",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1565,
+                "src": "785:42:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                  "typeString": "mapping(uint256 => uint256)"
+                },
+                "typeName": {
+                  "id": 1563,
+                  "keyType": {
+                    "id": 1561,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "793:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "785:21:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                    "typeString": "mapping(uint256 => uint256)"
+                  },
+                  "valueType": {
+                    "id": 1562,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "801:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Stakeholder",
+            "nodeType": "StructDefinition",
+            "scope": 1584,
+            "src": "695:140:5",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1569,
+            "name": "stakeholderIndex",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "841:41:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+              "typeString": "mapping(uint256 => bytes32)"
+            },
+            "typeName": {
+              "id": 1568,
+              "keyType": {
+                "id": 1566,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "849:4:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "841:24:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+                "typeString": "mapping(uint256 => bytes32)"
+              },
+              "valueType": {
+                "id": 1567,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "857:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1573,
+            "name": "stakeholderMap",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "889:46:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Stakeholder_$1565_storage_$",
+              "typeString": "mapping(bytes32 => struct Storage.Stakeholder)"
+            },
+            "typeName": {
+              "id": 1572,
+              "keyType": {
+                "id": 1570,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "897:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "889:31:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Stakeholder_$1565_storage_$",
+                "typeString": "mapping(bytes32 => struct Storage.Stakeholder)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1571,
+                "name": "Stakeholder",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1565,
+                "src": "908:11:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Stakeholder_$1565_storage_ptr",
+                  "typeString": "struct Storage.Stakeholder"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1575,
+            "name": "thesisCounter",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "944:18:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1574,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "944:4:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1579,
+            "name": "thesisIndex",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "969:36:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+              "typeString": "mapping(uint256 => bytes32)"
+            },
+            "typeName": {
+              "id": 1578,
+              "keyType": {
+                "id": 1576,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "977:4:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "969:24:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+                "typeString": "mapping(uint256 => bytes32)"
+              },
+              "valueType": {
+                "id": 1577,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "985:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1583,
+            "name": "thesisMap",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "1012:46:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Thesis_$1609_storage_$",
+              "typeString": "mapping(bytes32 => struct ThesisLib.Thesis)"
+            },
+            "typeName": {
+              "id": 1582,
+              "keyType": {
+                "id": 1580,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "1020:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1012:36:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Thesis_$1609_storage_$",
+                "typeString": "mapping(bytes32 => struct ThesisLib.Thesis)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1581,
+                "name": "ThesisLib.Thesis",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1609,
+                "src": "1031:16:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Thesis_$1609_storage_ptr",
+                  "typeString": "struct ThesisLib.Thesis"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1585,
+        "src": "58:1004:5"
+      }
+    ],
+    "src": "0:1062:5"
+  },
+  "legacyAST": {
+    "absolutePath": "/E/Dev/pmDapp/truffle/contracts/Storage.sol",
+    "exportedSymbols": {
+      "Storage": [
+        1584
+      ]
+    },
+    "id": 1585,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1511,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:25:5"
+      },
+      {
+        "absolutePath": "/E/Dev/pmDapp/truffle/contracts/ThesisLib.sol",
+        "file": "./ThesisLib.sol",
+        "id": 1512,
+        "nodeType": "ImportDirective",
+        "scope": 1585,
+        "sourceUnit": 1893,
+        "src": "29:25:5",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1584,
+        "linearizedBaseContracts": [
+          1584
+        ],
+        "name": "Storage",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Storage.Department",
+            "id": 1529,
+            "members": [
+              {
+                "constant": false,
+                "id": 1514,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1529,
+                "src": "113:7:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1513,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "113:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1516,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1529,
+                "src": "131:11:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1515,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "131:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1518,
+                "name": "secretariatCounter",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1529,
+                "src": "153:23:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1517,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "153:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1520,
+                "name": "thesisCounter",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1529,
+                "src": "187:18:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1519,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "187:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1524,
+                "name": "secretariatCounterToIndex",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1529,
+                "src": "216:47:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                  "typeString": "mapping(uint256 => uint256)"
+                },
+                "typeName": {
+                  "id": 1523,
+                  "keyType": {
+                    "id": 1521,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "224:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "216:21:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                    "typeString": "mapping(uint256 => uint256)"
+                  },
+                  "valueType": {
+                    "id": 1522,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "232:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1528,
+                "name": "thesisCounterToIndex",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1529,
+                "src": "274:42:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                  "typeString": "mapping(uint256 => uint256)"
+                },
+                "typeName": {
+                  "id": 1527,
+                  "keyType": {
+                    "id": 1525,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "282:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "274:21:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                    "typeString": "mapping(uint256 => uint256)"
+                  },
+                  "valueType": {
+                    "id": 1526,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "290:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Department",
+            "nodeType": "StructDefinition",
+            "scope": 1584,
+            "src": "84:240:5",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1531,
+            "name": "departmentCounter",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "332:22:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1530,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "332:4:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1535,
+            "name": "departmentIndex",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "361:40:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+              "typeString": "mapping(uint256 => bytes32)"
+            },
+            "typeName": {
+              "id": 1534,
+              "keyType": {
+                "id": 1532,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "369:4:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "361:24:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+                "typeString": "mapping(uint256 => bytes32)"
+              },
+              "valueType": {
+                "id": 1533,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "377:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1539,
+            "name": "departmentMap",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "408:44:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Department_$1529_storage_$",
+              "typeString": "mapping(bytes32 => struct Storage.Department)"
+            },
+            "typeName": {
+              "id": 1538,
+              "keyType": {
+                "id": 1536,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "416:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "408:30:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Department_$1529_storage_$",
+                "typeString": "mapping(bytes32 => struct Storage.Department)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1537,
+                "name": "Department",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1529,
+                "src": "427:10:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Department_$1529_storage_ptr",
+                  "typeString": "struct Storage.Department"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "canonicalName": "Storage.Secretariat",
+            "id": 1546,
+            "members": [
+              {
+                "constant": false,
+                "id": 1541,
+                "name": "active",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1546,
+                "src": "491:11:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1540,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "491:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1543,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1546,
+                "src": "513:7:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1542,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "513:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1545,
+                "name": "department",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1546,
+                "src": "531:15:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1544,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "531:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Secretariat",
+            "nodeType": "StructDefinition",
+            "scope": 1584,
+            "src": "461:93:5",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1548,
+            "name": "secretariatCounter",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "562:23:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1547,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "562:4:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1552,
+            "name": "secretariatIndex",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "592:41:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+              "typeString": "mapping(uint256 => bytes32)"
+            },
+            "typeName": {
+              "id": 1551,
+              "keyType": {
+                "id": 1549,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "600:4:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "592:24:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+                "typeString": "mapping(uint256 => bytes32)"
+              },
+              "valueType": {
+                "id": 1550,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "608:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1556,
+            "name": "secretariatMap",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "640:46:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Secretariat_$1546_storage_$",
+              "typeString": "mapping(bytes32 => struct Storage.Secretariat)"
+            },
+            "typeName": {
+              "id": 1555,
+              "keyType": {
+                "id": 1553,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "648:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "640:31:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Secretariat_$1546_storage_$",
+                "typeString": "mapping(bytes32 => struct Storage.Secretariat)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1554,
+                "name": "Secretariat",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1546,
+                "src": "659:11:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Secretariat_$1546_storage_ptr",
+                  "typeString": "struct Storage.Secretariat"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "canonicalName": "Storage.Stakeholder",
+            "id": 1565,
+            "members": [
+              {
+                "constant": false,
+                "id": 1558,
+                "name": "thesisCounter",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1565,
+                "src": "725:18:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1557,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "725:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1560,
+                "name": "thesisCompleted",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1565,
+                "src": "754:20:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1559,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "754:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1564,
+                "name": "thesisCounterToIndex",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1565,
+                "src": "785:42:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                  "typeString": "mapping(uint256 => uint256)"
+                },
+                "typeName": {
+                  "id": 1563,
+                  "keyType": {
+                    "id": 1561,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "793:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "785:21:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                    "typeString": "mapping(uint256 => uint256)"
+                  },
+                  "valueType": {
+                    "id": 1562,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "801:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Stakeholder",
+            "nodeType": "StructDefinition",
+            "scope": 1584,
+            "src": "695:140:5",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1569,
+            "name": "stakeholderIndex",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "841:41:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+              "typeString": "mapping(uint256 => bytes32)"
+            },
+            "typeName": {
+              "id": 1568,
+              "keyType": {
+                "id": 1566,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "849:4:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "841:24:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+                "typeString": "mapping(uint256 => bytes32)"
+              },
+              "valueType": {
+                "id": 1567,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "857:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1573,
+            "name": "stakeholderMap",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "889:46:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Stakeholder_$1565_storage_$",
+              "typeString": "mapping(bytes32 => struct Storage.Stakeholder)"
+            },
+            "typeName": {
+              "id": 1572,
+              "keyType": {
+                "id": 1570,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "897:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "889:31:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Stakeholder_$1565_storage_$",
+                "typeString": "mapping(bytes32 => struct Storage.Stakeholder)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1571,
+                "name": "Stakeholder",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1565,
+                "src": "908:11:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Stakeholder_$1565_storage_ptr",
+                  "typeString": "struct Storage.Stakeholder"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1575,
+            "name": "thesisCounter",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "944:18:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1574,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "944:4:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1579,
+            "name": "thesisIndex",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "969:36:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+              "typeString": "mapping(uint256 => bytes32)"
+            },
+            "typeName": {
+              "id": 1578,
+              "keyType": {
+                "id": 1576,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "977:4:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "969:24:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_bytes32_$",
+                "typeString": "mapping(uint256 => bytes32)"
+              },
+              "valueType": {
+                "id": 1577,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "985:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1583,
+            "name": "thesisMap",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 1584,
+            "src": "1012:46:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Thesis_$1609_storage_$",
+              "typeString": "mapping(bytes32 => struct ThesisLib.Thesis)"
+            },
+            "typeName": {
+              "id": 1582,
+              "keyType": {
+                "id": 1580,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "1020:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1012:36:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Thesis_$1609_storage_$",
+                "typeString": "mapping(bytes32 => struct ThesisLib.Thesis)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1581,
+                "name": "ThesisLib.Thesis",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1609,
+                "src": "1031:16:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Thesis_$1609_storage_ptr",
+                  "typeString": "struct ThesisLib.Thesis"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1585,
+        "src": "58:1004:5"
+      }
+    ],
+    "src": "0:1062:5"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.1+commit.e6f7d5a4.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.1.0",
+  "updatedAt": "2020-05-22T18:06:17.272Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

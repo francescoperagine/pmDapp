@@ -1,0 +1,21 @@
+<div class="p-3 m-3 border bg-light border-success">
+    <form [formGroup]="verificationForm" (ngSubmit)="onThesisVerification()">
+        <div class="input-group">
+            <div class="custom-file">
+                <input formControlName="file" value="" (change)="onFileChange($event)" type="file" class="custom-file-input" >
+                <label class="custom-file-label">{{fileLabelName}}</label>
+            </div>
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-success text-white" [disabled]="verificationForm.invalid">Verify</button>
+            </div>
+        </div>
+        <span class="p-1 help-block text-danger" *ngIf="verificationForm.invalid && verificationForm.get('file').touched">JSON file is required.</span>
+    </form>
+    <div *ngIf="verificationHasException" class="text-danger py-3">Thesis not registered or signature not been verified.</div>
+    <div *ngIf="verificationHasResult" class="text-success py-3">Signature has been verified.</div>
+    <div *ngIf="verificationHasResult" class="text-success">Source file: <a href="{{fileUrl}}" target="_blank" class="">{{fileUrl}}</a></div>
+</div>
+<!-- <div class="m-3 p-3 border">
+    <div class="m-3 text-info">Department list</div>
+    <div *ngFor="let department of departmentList" class="col px-3 py-1 border-bottom">{{department}}</div>
+</div> -->

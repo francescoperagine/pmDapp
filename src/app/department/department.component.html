@@ -1,0 +1,30 @@
+<div class="p-3 m-3 border" *ngIf="isDepartment">
+    <form
+        [formGroup]="secretariatForm"
+        (ngSubmit)="onCreateSecretariat()"
+        class="p-3">
+        <div class="m-3 text-info" id="createSecretariatHelp">Register a new secretariat for this department.</div>
+        <div class="input-group">
+            <input formControlName="address" type="text" placeholder="Secretariat address" class="form-control" required>
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-success"
+                    [disabled]="!secretariatForm.valid">Submit
+                </button>
+            </div>
+        </div>
+        <div class="text-danger" *ngIf="!secretariatForm.valid && secretariatForm.touched"><small>Enter a valid Ethereum address.</small></div>
+    </form>
+    <div *ngIf="secretariatCreated" class="small text-success">Secretariat created.</div>
+    <div *ngIf="!secretariatCreated" class="small text-danger">{{secretariatCreationException}}</div>
+</div>
+<div *ngIf="secretariatList?.length > 0" class="m-3">
+    <div class="border">
+        <div class="p-3 text-info">Secretariat of the current department</div>
+        <div
+            class="p-3"
+            *ngFor="let secretariat of secretariatList; index as index" 
+            appAlternateBackgroundColor [index]="index">
+            <div class="">{{secretariat}}</div>
+        </div>
+    </div>
+</div>

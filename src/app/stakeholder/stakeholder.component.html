@@ -1,0 +1,42 @@
+<div class="m-3">
+    <div *ngIf="isStakeholder" class="border">
+        <div class="row p-3 m-3 text-info">Stakeholder thesis hash list</div>
+        <div class="col">
+            <form 
+                #f="ngForm" 
+                class="row py-2 px-3 align-items-center"
+                *ngFor="let thesis of thesisList; index as index"
+                appAlternateBackgroundColor [index]="index">
+                <div class="btn-group form-group m-0 p-0" data-toggle="buttons">
+                    <div title="Secretariat" class="form-control border text-white" [ngClass]="thesis.secretariatPermission === true ? 'bg-success' : 'bg-danger'">S</div>
+                    <div title="Author" class="form-control border text-white" [ngClass]="thesis.authorPermission === true ? 'bg-success' : 'bg-danger'">A</div>
+                    <div title="Professor" class="form-control border text-white" [ngClass]="thesis.supervisorPermission === true ? 'bg-success' : 'bg-danger'">P</div>
+                </div>
+                <div class="col">
+                    <a class="bg-transparent" href="{{thesis.fileUrl}}" target="_blank">{{thesis.hash}}</a>
+                    <input type="hidden" [value]="thesis.hash" disabled>
+                </div>
+                <div class="btn-group">
+                    <button
+                        [disabled]="thesis.ownPermission"
+                        (click)="onSetPermission(thesis.hash, true)"
+                        class="btn btn-warning border"
+                        title="Grant permission">
+                    Allow
+                    </button>
+                    <button
+                        *ngIf="isSecretariat"
+                        [disabled]="!thesis.isFinalizable()"
+                        (click)="onFinalize(thesis.hash)"
+                        class="btn tip btn-success border"
+                        title="Sign">
+                        Finalize
+                    </button>
+                </div>
+            </form>
+            <div *ngIf="thesisHasBeenSigned" class="text-success row mb-3">
+                Thesis has been signed. Mind the signature file.
+            </div>
+        </div>
+    </div>
+</div>

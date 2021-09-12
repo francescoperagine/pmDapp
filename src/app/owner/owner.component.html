@@ -1,0 +1,25 @@
+<div class="p-3 m-3 border" *ngIf="isOwner">
+    <form [formGroup]="departmentForm" (ngSubmit)="onCreateDepartment()">
+        <div class="m-3 text-info" id="createDepartmentHelp">Register a new department.</div>
+        <div class="container">
+            <div class="row">
+                <input formControlName="address" type="text" placeholder="Address" class="form-control">
+            </div>
+            <div class="row text-danger" *ngIf="!departmentForm.get('address').valid && departmentForm.get('address').touched"><small>Enter a valid Ethereum address.</small></div>
+            <div class="mb-3"></div>
+            <div class="row">
+                <input formControlName="name" type="text" placeholder="Name" class="form-control">
+            </div>
+            <div class="row text-danger" *ngIf="!departmentForm.get('name').valid && departmentForm.get('name').touched"><small>Enter a valid name.</small></div>
+            <div class="mb-3"></div>
+        </div>
+        <div class="row center-text">
+            <div class="col text-center"><button type="reset" class="btn btn-block btn-danger">Reset</button></div>
+            <div class="col text-center">
+                <button type="submit" class="btn btn-block btn-success">Submit</button>
+            </div>
+        </div>
+    </form>
+    <div *ngIf="departmentCreated" class="small text-success">Department created.</div>
+    <div *ngIf="!departmentCreated" class="small text-danger">{{departmentCreationException}}</div>
+</div>
